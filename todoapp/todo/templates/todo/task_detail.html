@@ -2,22 +2,17 @@
 
 {% block content %}
 
-    <h1>Tasks</h1>
-
-    {% for task in tasks %}
-
+    <h1>Task Detail</h1>
+    
     <div class="card">
         <div class="card-body">
           <p>Author: {{ task.author }}</p>
-          <p><a href="{% url 'task-detail' task.id %}">{{ task.name }}</a></p>
+          <p>{{ task.name }}</p>
         </div>
         <div class="ml-auto">
             <p>Status - {{ task.status }}</p>
         </div>
     </div>
-
-    {% endfor %}
-
 
 {% endblock content %}
 

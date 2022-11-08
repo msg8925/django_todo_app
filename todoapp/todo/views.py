@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Task
 #from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, DetailView ,CreateView, UpdateView
 # from django.contrib.auth.models import User
 
 # Create your views here.
@@ -44,6 +44,10 @@ class TaskListView(LoginRequiredMixin, ListView):
     #     return False
 
 
+class TaskDetailView(DetailView):
+    model = Task
+    fields = ['name', 'status']
+
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['name']
@@ -52,3 +56,8 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
+    model = Task
+    fields = ['name', 'status']

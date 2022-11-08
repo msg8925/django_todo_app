@@ -9,5 +9,6 @@ class Task(models.Model):
     status = models.BooleanField(default=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    # I don't understand this
     def get_absolute_url(self):
         return reverse('task-create')
