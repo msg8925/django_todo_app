@@ -1,15 +1,54 @@
 from django.shortcuts import render
 from .models import Task
+#from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, CreateView
+# from django.contrib.auth.models import User
 
 # Create your views here.
-def home(request):
 
-    # Get all tasks from task table
-    tasks = Task.objects.all()
+# def correct_user_check():
+#     task = Task.objects.filter(username=)
+#     if user == user:
+#         return True
+    
+#     else:
+#         return False
 
-    # Pass tasks to template
-    context = {
-        "tasks": tasks
-    }
+# @user_passes_test
+# @login_required
+# def home(request):
 
-    return render(request, 'todo/home.html', context)
+#     # Get all tasks from task table
+#     #tasks = Task.objects.filter(author=)
+#     tasks = Task.objects.all()
+
+#     # Pass tasks to template
+#     context = {
+#         "tasks": tasks
+#     }
+
+#     return render(request, 'todo/home.html', context)
+
+#UserPassesTestMixin,
+class TaskListView(LoginRequiredMixin, ListView):
+    model = Task
+    context_object_name = 'tasks'
+    fields = ['name', 'status', 'author']
+
+
+    # def test_func(self):
+    #     task = self.get_object()
+    #     if self.request.user == task.author:
+    #         return True
+    #     return False
+
+
+class TaskCreateView(LoginRequiredMixin, CreateView):
+    model = Task
+    fields = ['name']
+
+    # I don't understand this
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
