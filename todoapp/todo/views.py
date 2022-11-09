@@ -30,12 +30,11 @@ from django.views.generic import ListView, DetailView ,CreateView, UpdateView, D
 
 #     return render(request, 'todo/home.html', context)
 
-#UserPassesTestMixin,
+# UserPassesTestMixin,
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
     fields = ['name', 'status', 'author']
-
 
     # def test_func(self):
     #     task = self.get_object()
@@ -59,9 +58,15 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class TaskUpdateView(LoginRequiredMixin, UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Task
     fields = ['name', 'status']
+
+    def test_func(self):
+        task = self.get_object()
+        if self.request.user == task.author:
+            return True
+        return False
 
 
 class TaskDeleteView(LoginRequiredMixin, DeleteView):

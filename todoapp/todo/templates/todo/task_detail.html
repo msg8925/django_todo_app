@@ -12,8 +12,10 @@
                 <p>Status - {{ task.status }}</p>
             </div>
             <div>
-                <a class="btn btn-outline-info" href="{% url 'task-update' task.id %}">Update</a>
-                <a class="btn btn-danger" href="{% url 'task-delete' task.id %}">Delete</a>
+                {% if object.author == user %}
+                    <a class="btn btn-outline-info" href="{% url 'task-update' task.id %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'task-delete' task.id %}">Delete</a>
+                {% endif %}
             </div>
         </div>   
     </div>
