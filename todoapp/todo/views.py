@@ -3,6 +3,7 @@ from .models import Task
 #from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView ,CreateView, UpdateView, DeleteView
+from .filters import TodoFilter
 # from django.contrib.auth.models import User
 
 # Create your views here.
@@ -32,9 +33,23 @@ from django.views.generic import ListView, DetailView ,CreateView, UpdateView, D
 
 # UserPassesTestMixin,
 class TaskListView(LoginRequiredMixin, ListView):
-    model = Task
+    queryset = Task.objects.all() 
+    #model = Task
     context_object_name = 'tasks'
-    fields = ['name', 'status', 'author']
+    #fields = ['name', 'status', 'author']
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = TodoFilter(self.request.GET, queryset=queryset)
+        return self.filterset.qs
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.filterset.form
+        return context
+
 
     # def test_func(self):
     #     task = self.get_object()

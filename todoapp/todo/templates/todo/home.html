@@ -4,6 +4,14 @@
 
     <h1>Tasks</h1>
 
+    <form method="GET">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
     {% for task in tasks %}
 
     <div class="card">
