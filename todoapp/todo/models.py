@@ -7,6 +7,7 @@ from django.urls import reverse
 class Task(models.Model):
     name = models.CharField(max_length=100)
     status = models.BooleanField(default=False)
+    desc = models.TextField(default=None)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # I don't understand this

@@ -6,6 +6,6 @@ class TodoFilter(django_filters.FilterSet):
         model = Task
         fields = {
             'name': ['icontains'], 
-            'author': ['exact'] 
+            #'author': ['exact'] 
         }
 

@@ -60,12 +60,12 @@ class TaskListView(LoginRequiredMixin, ListView):
 
 class TaskDetailView(DetailView):
     model = Task
-    fields = ['name', 'status']
+    fields = ['name', 'desc', 'status']
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ['name']
+    fields = ['name', 'desc']
 
     # I don't understand this
     def form_valid(self, form):
