@@ -3,14 +3,15 @@
 {% block content %}
     
     <div class="task-heading">
-        <h1>Tasks: {{ user }}</h1>
-        <form method="GET">
+        <a class="add-icon" href="{% url 'task-create' %}">&#43;</a>
+        <h1 class="task-heading-text">Tasks: {{ user }}</h1>
+        <form class="task-heading-text" method="GET">
             {% csrf_token %}
             {{ form }}
             <button type="submit">Search</button>
         </form>
-        <a class="add-icon" href="{% url 'task-create' %}">&#43;</a>
-        <p>Incomplete tasks: {{ count }}</p>
+        
+        <p class="task-heading-text">Incomplete tasks: {{ count }}</p>
     </div>
 
     <br>

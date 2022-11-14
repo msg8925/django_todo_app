@@ -1,12 +1,16 @@
 body{
-    background-color: white;
+    background-color: #00ef24;
     font-family: 'Sono', sans-serif;
 }
 
 .nav-bar{
-    background-color: lightgrey;
+    background-color: #220059;
     font-family: 'Sono', sans-serif;
 }
+
+.logo {
+    margin: 2px;
+} 
 
 /* .nav-link-custom{
     color: black
@@ -16,13 +20,18 @@ body{
     margin-top: 80px;
     margin-bottom: 10px;
     max-width: 70%;
-    background-color: #beef00;
+    background-color: #220059;
+    /* background-color: #beef00; */
     border-radius: 1%;
 }
 
 
 .task-heading {
     padding-top: 15px;
+}
+
+.task-heading-text {
+    color: white;
 }
 
 .tasks-container {
@@ -80,17 +89,18 @@ body{
 
 
 .add-icon {
-    display: block;
+    display: flex;
+    float: right;
     height: auto;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin-right: 30px;
     text-decoration: none;
-    color: black;
+    color: #00ef24;
     font-size: 100px;
 
 }
 
 .add-icon:hover {
     text-decoration: none;
-    color: red;
+    color: white;
 }

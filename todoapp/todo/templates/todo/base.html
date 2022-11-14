@@ -28,6 +28,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg nav-bar">
         
+        <div class="logo">
+          <img src="{% static 'flamingo-sm.png' %}" alt="logo">
+        </div>
+
         <!-- Logo -->
         <a class="navbar-brand" href="{% url 'todo-home' %}">TodoApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,14 +70,14 @@
                     <a class="nav-link" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'task-create' %}">Task</a>
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'register' %}">Register</a>

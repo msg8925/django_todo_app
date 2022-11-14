@@ -90,7 +90,8 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
 
 class TaskUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Task
-    fields = ['name', 'status']
+    fields = ['name', 'desc', 'status']
+    success_url = reverse_lazy('todo-home')
 
     def test_func(self):
         task = self.get_object()
