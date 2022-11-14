@@ -4,6 +4,7 @@ from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView ,CreateView, UpdateView, DeleteView
 from .filters import TodoFilter
+from django.urls import reverse_lazy
 # from django.contrib.auth.models import User
 
 # Create your views here.
@@ -79,6 +80,7 @@ class TaskDetailView(LoginRequiredMixin, DetailView):
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['name', 'desc']
+    success_url = reverse_lazy('todo-home')
 
     # I don't understand this
     def form_valid(self, form):

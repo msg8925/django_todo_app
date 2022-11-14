@@ -5,15 +5,16 @@
 
     <h1>Task Page</h1>
 
-        <form method="POST">
+        <form class="pb-3" method="POST">
             {% csrf_token %}
 
             <div>
                 {{ form|crispy }}
             </div>
 
-            <div class="mt-2 mb-2">
-                <button class="btn btn-outline-info mb-3" type="submit">Submit</button>
+            <div class="mt-2">
+                <button class="btn btn-outline-info" type="submit">Submit</button>
+                <a class="btn btn-outline-info" href="{% url 'todo-home' %}">Cancel</a>
             </div>
         </form>
   
