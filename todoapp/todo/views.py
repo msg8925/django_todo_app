@@ -48,8 +48,19 @@ class TaskListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        
+        # Get task data and filter it
         context['tasks'] = context['tasks'].filter(author=self.request.user)
+        
+        # Get form
         context['form'] = self.filterset.form
+
+        # Get number of incomplete tasks
+        context['count'] = 0
+        for task in context['tasks']:
+            if task.status == False:
+                context['count'] += 1 
+    
         return context
 
 
