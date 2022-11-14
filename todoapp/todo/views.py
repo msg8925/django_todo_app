@@ -40,6 +40,7 @@ class TaskListView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self):
+        # Get the Task data from the 
         queryset = super().get_queryset()
         self.filterset = TodoFilter(self.request.GET, queryset=queryset)
         return self.filterset.qs
