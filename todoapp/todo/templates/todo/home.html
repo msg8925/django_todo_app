@@ -10,8 +10,8 @@
             {{ form }}
             <button type="submit">Search</button>
         </form>
+        <p class="task-heading-count">{{ count }} <p class="task-heading-text">incomplete task{{count|pluralize:"s"}}</p></p>
         
-        <p class="task-heading-text">Incomplete tasks: {{ count }}</p>
     </div>
 
     <br>
@@ -20,13 +20,13 @@
     {% for task in tasks %}
 
         <div class="task-wrapper">
-            <div>
-                <a class="task-link" href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
+            <div class=task-inside-wrapper>
                 {% if task.status %}
                     <div class="task-complete-icon"></div>
                 {% else %}    
                     <div class="task-incomplete-icon"></div>
                 {% endif %}
+                <a class="task-link" href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
             </div>   
 
             <a class="mr-2 delete-icon" href="{% url 'task-delete' task.id %}">&#215;</a>

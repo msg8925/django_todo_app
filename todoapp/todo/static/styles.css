@@ -31,7 +31,13 @@ body{
 }
 
 .task-heading-text {
+    display: flex;
     color: white;
+}
+
+.task-heading-count {
+    display: flex;
+    color: #00ef24;
 }
 
 .tasks-container {
@@ -46,7 +52,15 @@ body{
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid rgb(226, 226, 226);
-    max-height: 150px;
+    max-height: 100px;
+}
+
+.task-inside-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
 }
 
 .task-link {
@@ -55,7 +69,7 @@ body{
 
 .task-link:hover{
     text-decoration: none;
-    color:#beef00;
+    color: #00ef24;
 }
 
 .task-complete-icon {
@@ -63,7 +77,7 @@ body{
     width: 20px;
     background-color: rgb(105, 192, 105);
     border-radius: 50%;
-    margin: 0;
+    margin-right: 10px;
     padding: 0;
 
 }
@@ -72,6 +86,7 @@ body{
     height: 20px;
     width: 20px;
     background-color: rgb(218, 218, 218);
+    margin-right: 10px;
     border-radius: 50%;
 }
 
