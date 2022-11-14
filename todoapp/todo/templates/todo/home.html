@@ -9,6 +9,7 @@
             {{ form }}
             <button type="submit">Search</button>
         </form>
+        <a class="add-icon" href="{% url 'task-create' %}">&#43;</a>
     </div>
 
     <br>
@@ -16,23 +17,18 @@
     <div class="tasks-container">
     {% for task in tasks %}
 
-    <div class="">
         <div class="task-wrapper">
-        
             <div>
-                <div>
-                    {% if task.status %}
-                        <div class="task-complete-icon"></div>
-                    {% else %}    
-                        <div class="task-incomplete-icon"></div>
-                    {% endif %}
-                    <a href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
-                </div>   
-            </div>
+                <a class="task-link" href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
+                {% if task.status %}
+                    <div class="task-complete-icon"></div>
+                {% else %}    
+                    <div class="task-incomplete-icon"></div>
+                {% endif %}
+            </div>   
 
             <a class="mr-2 delete-icon" href="{% url 'task-delete' task.id %}">&#215;</a>
         </div>   
-    </div>
 
     {% endfor %}
     </div>

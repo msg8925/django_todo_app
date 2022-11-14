@@ -3,17 +3,15 @@
 {% block content %}
 
     <h1>Task Detail</h1>
-    
-    <div class="card">
-        <div class="card-body">
-            <!-- <p>Author: {{ task.author }}</p> -->
+    <div class="tasks-container">
+        <div class="task-wrapper">   
             <p>{{ task.name }}</p>
-            <div class="ml-auto">
-                <p>Status: {{ task.status }}</p>
-            </div>
-            <div class="ml-auto">
-                <p>Description: {{ task.desc }}</p>
-            </div>
+            {% if task.status %}
+                    Status: <div class="task-complete-icon"></div>
+                {% else %}    
+                    Status: <div class="task-incomplete-icon"></div>
+            {% endif %}
+            <p>Description: {{ task.desc }}</p>
             <div>
                 {% if task.author == user %}
                     <a class="btn btn-outline-info" href="{% url 'task-update' task.id %}">Update</a>
