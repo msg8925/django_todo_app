@@ -47,6 +47,7 @@ class TaskListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(author=self.request.user)
         context['form'] = self.filterset.form
         return context
 
@@ -58,7 +59,7 @@ class TaskListView(LoginRequiredMixin, ListView):
     #     return False
 
 
-class TaskDetailView(DetailView):
+class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
     fields = ['name', 'desc', 'status']
 
