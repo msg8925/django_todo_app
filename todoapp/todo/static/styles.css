@@ -1,5 +1,32 @@
 body{
     background-color: white;
+    font-family: 'Sono', sans-serif;
+}
+
+.nav-bar{
+    background-color: lightgrey;
+    font-family: 'Sono', sans-serif;
+}
+
+/* .nav-link-custom{
+    color: black
+} */
+
+.main-div{
+    margin-top: 80px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    background-color: #beef00;
+}
+
+
+.task-heading {
+    padding-top: 15px;
+}
+
+.tasks-container {
+    padding-top: 0px;
+    padding-bottom: 20px;
 }
 
 .task-wrapper {
@@ -9,10 +36,31 @@ body{
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid rgb(226, 226, 226);
+    max-height: 150px;
+}
+
+.task-complete-icon {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(105, 192, 105);
+    border-radius: 50%;
+}
+
+.task-incomplete-icon {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(218, 218, 218);
+    border-radius: 50%;
 }
 
 
 .delete-icon {
+    text-decoration: none;
     color: black;
     font-size: 100px;
+}
+
+.delete-icon:hover {
+    text-decoration: none;
+    color: red;
 }

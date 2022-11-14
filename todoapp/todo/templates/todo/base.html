@@ -16,15 +16,20 @@
     <!-- CSS file -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono&display=swap" rel="stylesheet">
+
     <title>Todo App</title>
   </head>
   <body>
   
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg nav-bar">
         
         <!-- Logo -->
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">TodoApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'todo-home' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link nav-link-custom" href="{% url 'todo-home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -84,7 +89,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container main-div">
 
         {% if messages %}
             {% for messages in messages %}

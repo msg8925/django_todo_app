@@ -1,39 +1,41 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
-
-    <h1>Tasks: {{ user }}</h1>
-
-    <form method="GET">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Submit</button>
-    </form>
+    
+    <div class="task-heading">
+        <h1>Tasks: {{ user }}</h1>
+        <form method="GET">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
     <br>
 
+    <div class="tasks-container">
     {% for task in tasks %}
 
     <div class="">
         <div class="task-wrapper">
         
             <div>
-                <a href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
-                <p>Status - {{ task.status }}</p>
+                <div>
+                    {% if task.status %}
+                        <div class="task-complete-icon"></div>
+                    {% else %}    
+                        <div class="task-incomplete-icon"></div>
+                    {% endif %}
+                    <a href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
+                </div>   
             </div>
 
             <a class="mr-2 delete-icon" href="{% url 'task-delete' task.id %}">&#215;</a>
-
-            
-        
-            
-
-        </div>
-        
+        </div>   
     </div>
 
     {% endfor %}
-
+    </div>
 
 {% endblock content %}
 
