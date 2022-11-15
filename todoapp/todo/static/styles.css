@@ -31,12 +31,12 @@ body{
 }
 
 .task-heading-text {
-    display: flex;
+    /* display: flex; */
     color: white;
 }
 
 .task-heading-count {
-    display: flex;
+    /* display: flex; */
     color: #00ef24;
 }
 
@@ -112,7 +112,6 @@ body{
     text-decoration: none;
     color: #00ef24;
     font-size: 100px;
-
 }
 
 .add-icon:hover {

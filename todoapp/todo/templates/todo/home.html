@@ -10,8 +10,8 @@
             {{ form }}
             <button type="submit">Search</button>
         </form>
-        <p class="task-heading-count">{{ count }} <p class="task-heading-text">incomplete task{{count|pluralize:"s"}}</p></p>
-        
+
+        <p class="task-heading-text">incomplete task{{count|pluralize:"s"}}: <p class="task-heading-count">{{ count }}</p></p>    
     </div>
 
     <br>
@@ -28,7 +28,6 @@
                 {% endif %}
                 <a class="task-link" href="{% url 'task-detail' task.id %}">{{ task.name }}</a>
             </div>   
-
             <a class="mr-2 delete-icon" href="{% url 'task-delete' task.id %}">&#215;</a>
         </div>   
 
