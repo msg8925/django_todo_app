@@ -28,10 +28,10 @@ def register(request):
 def profile(request):
 
     if request.method == 'POST':
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         u_form = UserUpdateForm(request.POST, instance=request.user)
-          
-        if p_form.is_valid and u_form.is_valid:
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)  
+
+        if p_form.is_valid() and u_form.is_valid():
             p_form.save()
             u_form.save()  
 
