@@ -3,17 +3,18 @@
 
 {% block content %}
 
-    <h1>Register Page</h1>
+    <h1>Profile Page</h1>
 
         <form method="POST">
             {% csrf_token %}
 
             <div>
-                {{ form|crispy }}
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
             </div>
 
             <div>
-                <button class="btn btn-outline-info mb-3" type="submit">Register</button>
+                <button class="btn btn-outline-info mb-3" type="submit">Update</button>
             </div>
         </form>
   
