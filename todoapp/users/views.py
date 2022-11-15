@@ -25,8 +25,8 @@ def register(request):
 
 def profile(request):
 
-    p_form = ProfileUpdateForm()
-    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    u_form = UserUpdateForm(instance=request.user)
 
     context = {
         "p_form": p_form,
