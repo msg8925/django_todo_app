@@ -3,12 +3,12 @@
 
 {% block content %}
 
-    <h1>Login Page</h1>
+    <h1 class="white-text">Login Page</h1>
 
         <form method="POST">
             {% csrf_token %}
 
-            <div class="mt-2 mb-2">
+            <div class="mt-2 mb-2 white-text">
                 {{ form|crispy }}
             </div>
 

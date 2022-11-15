@@ -13,7 +13,6 @@ def register(request):
             messages.success(request, f'Profile successfully created.')
             return redirect('todo-home')
 
-
     else:
         form = UserRegistrationForm()
         

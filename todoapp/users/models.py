@@ -7,7 +7,7 @@ class Profile(models.Model):
     image = models.ImageField(default="default.jpg", upload_to="profile_pics")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    def save(self):
+    def save(self, *args, **kwargs):
         super().save()
 
         img = Image.open(self.image.path)
